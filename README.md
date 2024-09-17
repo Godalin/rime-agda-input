@@ -7,10 +7,6 @@ If you once played with agda, you will like it.
 Agda 輸入法, 碼錶取材於 `agda-input.el`,
 提供了大量 (數學) 符號的簡便輸入方式, 比較適用於日常記錄筆記.
 
-## Differences from `agda-input.el`
-
-上下標的輸入方式不需要加上前綴 `\`, 直接以 `^_` 開始就會輸入上下標的小字.
-
 ## Use with other schemas
 
 參考 `rime-latex` 以實現如何將 `rime-agda-input` 結合其他輸入方案使用.
