@@ -24,7 +24,7 @@ engine:
 speller:
   alphabet: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789\^_-><+-=()[]!@#$%{}'
   initials: '\_^'
-  auto_select: true
+  auto_select: false
 
 translator:
   dictionary: agda_input
