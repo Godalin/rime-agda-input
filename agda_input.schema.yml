@@ -3,7 +3,7 @@ schema:
   name: Agda Math Symbols
   version: "0.1"
   author:
-    - godalin <yly1228@foxmail.com>
+    - Godalin <yly1228@foxmail.com>
   description: |
     Agda Math Symbols Input Method.
     You have to type '\' first to get symbols.
