@@ -11,7 +11,7 @@ Agda 輸入法, 碼錶取材於 `agda-input.el`,
 
 參考 `rime-latex` 以實現如何將 `rime-agda-input` 結合其他輸入方案使用.
 
-下面是一個結合使用的例子 `default.custom.yaml` (我自己使用的):
+下面是一個結合 `rime-latex` 以及 `rime-agda-input` 使用的例子 `default.custom.yaml` (我自己使用的):
 
 ```yaml
 # 一個優秀的雙拼輸入法: 西文 + 中文默認西文標點
@@ -37,8 +37,7 @@ patch:
     "\\": ["、", "＼"]
 
   engine/+:
-    # 加入 latex 的碼錶, 如果我想加入自己的碼錶, 我就應該在這裏加上
-    # TODO 比如 Agda 輸入法 (待加入全家桶)
+    # 添加碼錶
     translators/+:
       - table_translator@latex_input
       - table_translator@agda_input
@@ -60,17 +59,18 @@ patch:
     db_class: tabledb
     tips: "[LaTeX]"
 
-  recognizer/patterns/agda_input: '^\\[\S]+$'
+  recognizer/patterns/agda_input: "^\\\\[\\D]$" # TODO: 如何得到一個支持數字變體的方案
   agda_input:
     tag: agda_input
     dictionary: agda_input
-    prefix: '\'
+    prefix: '\_^'
     enable_sentence: false
     enable_completion: true # enable autocomplete
-    enable_user_dict: true # enable word frequency, use with user_dict
+    enable_user_dict: true # enable word frequency,  use with user_dict
     user_dict: custom_agda_user # generate a file name custom_agda_user.txt
     db_class: tabledb
     tips: "[Agda]"
+
 ```
 
 ## Installation
