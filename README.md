@@ -11,7 +11,75 @@ Agda 輸入法, 碼錶取材於 `agda-input.el`,
 
 參考 `rime-latex` 以實現如何將 `rime-agda-input` 結合其他輸入方案使用.
 
-TODO: 給出一個結合使用的例子
+下面是一個結合使用的例子 `default.custom.yaml` (我自己使用的):
+
+```yaml
+# 一個優秀的雙拼輸入法: 西文 + 中文默認西文標點
+
+# 支持 LaTeX + Agda 符號快捷輸入, etc.
+# 用輸入的鍵碼而非對應的全拼: 這個需要修改.
+
+patch:
+  # 默認英文標點符號
+  switches/@0/reset: 0
+  switches/@3/reset: 1
+
+  # 設置 LaTeX 輸入結合雙拼輸入 (應當製作一個新的輸入法)
+  # 把反斜槓 `\` 加入字母表
+  speller/alphabet: zyxwvutsrqponmlkjihgfedcba\
+  speller/delimiter: "'"
+  speller/auto_select: true
+
+  # 並且在標點階段處理, 這樣的話就可以處理全角和半角, 不用忍受奇怪的候選了
+  punctuator/half_shape:
+    "\\": ["\\"]
+  punctuator/full_shape:
+    "\\": ["、", "＼"]
+
+  engine/+:
+    # 加入 latex 的碼錶, 如果我想加入自己的碼錶, 我就應該在這裏加上
+    # TODO 比如 Agda 輸入法 (待加入全家桶)
+    translators/+:
+      - table_translator@latex_input
+      - table_translator@agda_input
+
+  # translator's prefix will consume one '\\'. so user only type once '\' key, only recognize uppercase and lowercase letters, so you can use the number keys to select words.
+  schema/dependencies/+:
+    - latex
+    - agda_input
+
+  recognizer/patterns/latex_input: '^\\[a-zA-Z]+$'
+  latex_input:
+    tag: latex_input
+    dictionary: latex
+    prefix: '\'
+    enable_sentence: false
+    enable_completion: true # enable autocomplete
+    enable_user_dict: true # enable word frequency, use with user_dict
+    user_dict: custom_latex_user # generate a file name custom_latex_user.txt
+    db_class: tabledb
+    tips: "[LaTeX]"
+
+  recognizer/patterns/agda_input: '^\\[\S]+$'
+  agda_input:
+    tag: agda_input
+    dictionary: agda_input
+    prefix: '\'
+    enable_sentence: false
+    enable_completion: true # enable autocomplete
+    enable_user_dict: true # enable word frequency, use with user_dict
+    user_dict: custom_agda_user # generate a file name custom_agda_user.txt
+    db_class: tabledb
+    tips: "[Agda]"
+```
+
+## Installation
+
+可以使用 `/plum/` 進行安裝:
+
+```bash
+rime-install godalin/rime-agda-input
+```
 
 ## References
 
