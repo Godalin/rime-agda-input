@@ -34,7 +34,7 @@ def add_symbol_list(key, symbols, file):
 
 if matches:
     print("找到匹配的字符串, 開始生成碼錶")
-    with open("agda_input.dict.yml", 'w', encoding='utf-8') as dict_yaml:
+    with open("agda_input.dict.yaml", 'w', encoding='utf-8') as dict_yaml:
         print("""\
 # Rime dictionary
 # encoding: utf-8
