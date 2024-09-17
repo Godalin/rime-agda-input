@@ -1,5 +1,5 @@
 schema:
-  schema_id: agda-input
+  schema_id: agda_input
   name: Agda Math Symbols
   version: "0.1"
   author:
