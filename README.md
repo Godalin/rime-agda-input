@@ -13,7 +13,9 @@ Agda 輸入法, 碼錶取材於 `agda-input.el`,
 
 ## Use with other schemas
 
-參考 `rime-agda` 以實現如何將 `rime-agda-input` 結合其他輸入方案使用.
+參考 `rime-latex` 以實現如何將 `rime-agda-input` 結合其他輸入方案使用.
+
+TODO: 給出一個結合使用的例子
 
 ## References
 
