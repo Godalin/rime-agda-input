@@ -18,10 +18,7 @@ matches = pattern.finditer(content)
 
 
 def add_single_symbol(key: str, symbol, file):
-    if key.startswith(("^", "_")):
-        pass
-    else:
-        key = "\\" + key
+    key = "\\" + key
     print(symbol, key, sep="\t", file=file)
 
 def add_symbol_list(key, symbols, file):
