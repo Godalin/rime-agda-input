@@ -23,6 +23,11 @@ Agda 輸入法, 碼錶取材於 `agda-input.el`,
 # 用輸入的鍵碼而非對應的全拼: 這個需要修改.
 
 patch:
+  # 依赖于 rime-latex 以及 rime-agda
+  schema/dependencies/+:
+    - latex
+    - agda_input
+
   # 默認英文標點符號
   switches/@0/reset: 0
   switches/@3/reset: 1
@@ -43,37 +48,32 @@ patch:
     # 加入 latex 的碼錶, 如果我想加入自己的碼錶, 我就應該在這裏加上
     # 以及 Agda 輸入法 (現已加入全家桶)
     translators/+:
-      - table_translator@latex_input
+      - table_translator@latex
       - table_translator@agda_input
 
-  # translator's prefix will consume one '\\'. so user only type once '\' key, only recognize uppercase and lowercase letters, so you can use the number keys to select words.
-  schema/dependencies/+:
-    - latex
-    - agda_input
-
   recognizer/patterns/+:
-    latex_input: '^\\[a-zA-Z]+$'
-    agda_input: "^\\\\(\\D|(\\\\\\d))+$"
+    # 將下面的模式都映射到 symbol tag, 並且啓用下面的兩張表去查對應的符號
+    symbol: "^\\\\(\\D|(\\\\\\d))+$"
 
-  latex_input:
-    tag: latex_input
+  latex:
+    tag: symbol
     dictionary: latex
     prefix: '\'
     enable_sentence: false
-    enable_completion: true # enable autocomplete
-    enable_user_dict: true # enable word frequency,  use with user_dict
-    user_dict: custom_latex_user # generate a file name custom_latex_user.txt
+    enable_completion: true
+    enable_user_dict: true
+    user_dict: custom_latex_user
     db_class: tabledb
     tips: "[LaTeX]"
 
   agda_input:
-    tag: agda_input
+    tag: symbol
     dictionary: agda_input
     prefix: '\'
     enable_sentence: false
-    enable_completion: true # enable autocomplete
-    enable_user_dict: true # enable word frequency,  use with user_dict
-    user_dict: custom_agda_user # generate a file name custom_agda_user.txt
+    enable_completion: true
+    enable_user_dict: true
+    user_dict: custom_agda_user
     db_class: tabledb
     tips: "[Agda]"
 ```
