@@ -109,8 +109,8 @@ rime-install godalin/rime-agda-input
 
 ## TODOs:
 
-- 現在同時啓用 rime-agda-input 和 rime-latex, 後者會不起作用.
-後續會進行修改.
+- ~~現在同時啓用 rime-agda-input 和 rime-latex, 後者會不起作用. 後續會進行修改.~~
+- 暫無
 
 ## References
 
