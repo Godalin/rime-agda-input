@@ -19,10 +19,12 @@ Agda 輸入法, 碼錶取材於 `agda-input.el`,
 # 一個優秀的雙拼輸入法: 西文 + 中文默認西文標點
 
 # 支持 LaTeX 公式快捷輸入, etc.
+# 支持 agda-input 公式輸入, 因爲這套方案很優雅.
 # 從此需要習慣使用 enter 鍵入當前的英文內容. 把它設置成 tab 就更好了.
 # 用輸入的鍵碼而非對應的全拼: 這個需要修改.
 
 patch:
+  schema/name: 自然碼雙拼⟨魔改⟩
   # 依赖于 rime-latex 以及 rime-agda
   schema/dependencies/+:
     - latex
@@ -39,10 +41,10 @@ patch:
   speller/auto_select: true
 
   # 並且在標點階段處理, 這樣的話就可以處理全角和半角, 不用忍受奇怪的候選了
-  punctuator/half_shape:
-    "\\": ["\\"]
-  punctuator/full_shape:
-    "\\": ["、", "＼"]
+  # punctuator/half_shape:
+  #   "\\": ["\\"]
+  # punctuator/full_shape:
+  #   "\\": ["、", "＼"]
 
   engine/+:
     # 加入 latex 的碼錶, 如果我想加入自己的碼錶, 我就應該在這裏加上
@@ -107,8 +109,8 @@ rime-install godalin/rime-agda-input
 
 ## TODOs:
 
-- 現在同時啓用 rime-agda-input 和 rime-latex, 後者會不起作用.
-後續會進行修改.
+- ~~現在同時啓用 rime-agda-input 和 rime-latex, 後者會不起作用. 後續會進行修改.~~
+- 暫無
 
 ## References
 
