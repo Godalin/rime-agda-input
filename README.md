@@ -13,7 +13,7 @@ Agda 輸入法, 碼錶取材於 `agda-input.el`,
 
 下面是一個結合 `rime-latex` 以及 `rime-agda-input` 使用的例子.
 
-`default.custom.yaml` (我自己使用的):
+`default.custom.yaml` (我自己使用的) [可以參考這裏](https://github.com/Godalin/RimeConfig)來詳細瞭解如何結合符號輸入法到已有輸入法, 或者基於符號輸入法構造新的輸入法:
 
 ```yaml
 # 一個優秀的雙拼輸入法: 西文 + 中文默認西文標點
