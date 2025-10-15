@@ -4,6 +4,9 @@ Typing symbols with agda-style shortcuts in RIME.
 
 If you once played with agda, you will like it.
 
+![examples](/image/examples.png)
+
+
 Agda 輸入法, 碼錶取材於 `agda-input.el`,
 提供了大量 (數學) 符號的簡便輸入方式, 比較適用於日常記錄筆記.
 
